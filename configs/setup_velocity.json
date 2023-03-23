@@ -1,0 +1,1292 @@
+{
+  "data": {
+    "MS_images": false,
+    "MS_volume": false,
+    "SDF": false,
+    "batch_size": [
+      2,
+      -4
+    ],
+    "clip_grid": false,
+    "clip_grid_pad": 4,
+    "crop_grid": true,
+    "density": {
+      "density_type": "SF",
+      "hull_image_blur_std": 1.0,
+      "hull_smooth_blur_std": 0.0,
+      "hull_threshold": 0.04,
+      "hull_volume_blur_std": 0.5,
+      "inflow": {
+        "active": false,
+        "height": "MAX",
+        "hull_height": 4
+      },
+      "initial_value": "data/scalarFlow/sim_{sim:06d}/reconstruction/density_{frame:06d}.npz",
+      "max": 255.0,
+      "min": 0.0,
+      "render_targets": false,
+      "scalarFlow_reconstruction": "data/scalarFlow/sim_{sim:06d}/reconstruction/density_{frame:06d}.npz",
+      "scale": 1,
+      "synthetic_target_density_scale": 1.0,
+      "target": "data/scalarFlow/sim_{sim:06d}/input/cam/imgsUnproc_{frame:06d}.npz",
+      "target_cam_ids": "ALL",
+      "target_flip_y": false,
+      "target_preproc": "data/scalarFlow/sim_{sim:06d}/input/postprocessed/imgs_{frame:06d}.npz",
+      "target_scale": 1.5,
+      "target_threshold": 0.04,
+      "target_type": "PREPROC"
+    },
+    "discriminator": {
+      "crop_size": [
+        96,
+        96
+      ],
+      "density_type": "SF",
+      "frames": [
+        35,
+        125,
+        1
+      ],
+      "gamma_fake": [
+        0.5,
+        2
+      ],
+      "gamma_real": [
+        0.5,
+        2
+      ],
+      "initial_value": "data/scalarFlow/sim_{sim:06d}/reconstruction/density_{frame:06d}.npz",
+      "real_res_down": 4,
+      "render_targets": false,
+      "rotation_mode": "NONE",
+      "scale_fake": [
+        0.7,
+        1.4
+      ],
+      "scale_input_to_crop": false,
+      "scale_range": [
+        0.85,
+        1.15
+      ],
+      "scale_real": [
+        0.8,
+        1.8
+      ],
+      "scale_real_to_cam": true,
+      "simulations": [
+        0,
+        20
+      ],
+      "target": "data/scalarFlow/sim_{sim:06d}/input/cam/imgsUnproc_{frame:06d}.npz",
+      "target_preproc": "data/scalarFlow/sim_{sim:06d}/input/postprocessed/imgs_{frame:06d}.npz",
+      "target_type": "RAW"
+    },
+    "grid_size": 64,
+    "hull": "TARGETS",
+    "initial_buoyancy": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "load_sequence": null,
+    "load_sequence_pre_opt": false,
+    "rand_seed_global": 460585320,
+    "randomize": 64,
+    "res_down_factor": 640,
+    "resource_device": "/cpu:0",
+    "run_dirs": [
+      "runs/train_velDens_sequence"
+    ],
+    "scalarFlow_frame_offset": -11,
+    "sequence_length": 5,
+    "sequence_step": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "sims": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19
+    ],
+    "simulation": 0,
+    "start": 20,
+    "step": 2,
+    "stop": 141,
+    "synth_shapes": {
+      "active": false,
+      "init_center": false,
+      "max_translation": 0.8,
+      "shape_types": [
+        0,
+        1,
+        2,
+        5
+      ]
+    },
+    "velocity": {
+      "boundary": "CLAMP",
+      "init_mask": "HULL_TIGHT_NEXT",
+      "init_std": 0.1,
+      "initial_value": "data/scalarFlow/sim_{sim:06d}/reconstruction/velocity_{frame:06d}.npz",
+      "load_step": 1,
+      "scalarFlow_reconstruction": "data/scalarFlow/sim_{sim:06d}/reconstruction/velocity_{frame:06d}.npz"
+    },
+    "y_scale": 1.5
+  },
+  "debug": {
+    "disc_dump_samples": false,
+    "print_weight_grad_stats": false,
+    "target_dump_samples": false
+  },
+  "desc": "Sample setup for training of the velocity estimator with ScalarFlow data.",
+  "paths": {
+    "base": "runs",
+    "group": "train_velDens_sequence"
+  },
+  "rendering": {
+    "SDF_threshold": 0.02,
+    "allow_fused_rendering": true,
+    "allow_static_cameras": false,
+    "background": {
+      "color": [
+        0,
+        0.5,
+        1.0
+      ],
+      "type": "COLOR"
+    },
+    "blend_mode": "BEER_LAMBERT",
+    "boundary": "BORDER",
+    "filter_mode": "LINEAR",
+    "lighting": {
+      "ambient_intensity": 0.64,
+      "initial_intensity": 0.85,
+      "shadow_resolution": [
+        128,
+        96,
+        96
+      ]
+    },
+    "luma": [
+      0.2126,
+      0.7152,
+      0.0722
+    ],
+    "main_camera": {
+      "base_resolution": [
+        256,
+        1920,
+        1080
+      ],
+      "distance": 0.8,
+      "far": 1.3,
+      "fov": 40,
+      "near": 0.3,
+      "resolution_scale": 0.3333333333333333
+    },
+    "mip": {
+      "bias": 0.0,
+      "level": 4,
+      "mode": "LINEAR"
+    },
+    "monochrome": false,
+    "num_images": 24,
+    "sample_gradients": true,
+    "steps_per_cycle": 24,
+    "synthetic_target": {
+      "ambient_intensity": 0.64,
+      "blend_mode": "BEER_LAMBERT",
+      "filter_mode": "LINEAR",
+      "initial_intensity": 0.85
+    },
+    "target_cameras": {
+      "calibration_file": "scalaFlow_cameras.json",
+      "camera_ids": [
+        2,
+        1,
+        0,
+        4,
+        3
+      ],
+      "crop_frustum": false,
+      "crop_frustum_pad": 2
+    },
+    "velocity_scale": 1024
+  },
+  "title": "velocity_ScalarFlow",
+  "training": {
+    "MS_weighting": null,
+    "allow_MS_losses": true,
+    "checkpoint_interval": 125,
+    "density": {
+      "SDF_pos_loss": 0,
+      "camera_jitter": false,
+      "center_loss": 0.001,
+      "decoder": {
+        "active": true,
+        "base_SDF_mode": "NONE",
+        "base_input": "ZERO",
+        "grow_intervals": [],
+        "input_type": "PREPROC",
+        "min_grid_res": 4,
+        "model": "[RUNID:000000-000000]density_decoder",
+        "recursive_MS": false,
+        "recursive_MS_copy_on_grow": false,
+        "recursive_MS_direct_input": false,
+        "recursive_MS_levels": 1,
+        "recursive_MS_residual": true,
+        "recursive_MS_scale_factor": 2.0,
+        "recursive_MS_shared_model": true,
+        "recursive_MS_train_mode": "ALL",
+        "skip_merge_weight_schedule": {
+          "base": 2.0,
+          "max": 1.0,
+          "min": 1.0,
+          "offset": 250,
+          "scale": 1.0,
+          "schedule": [],
+          "start": 1.0,
+          "step": 0.0,
+          "type": "LINEAR"
+        },
+        "start_level": 0,
+        "step_input_density": [],
+        "step_input_density_target": [],
+        "step_input_features": [
+          0
+        ],
+        "train_mode": "ALL",
+        "train_mode_schedule": {
+          "base": 2.0,
+          "max": Infinity,
+          "min": -Infinity,
+          "offset": 0,
+          "scale": 1.0,
+          "schedule": [],
+          "start": true,
+          "step": 0,
+          "type": "BOOLEAN"
+        },
+        "type_input_features": [
+          "ENC3D"
+        ],
+        "warp_input_indices": [
+          0
+        ]
+      },
+      "discriminator_loss": 2e-06,
+      "error_functions": {
+        "SDF_pos_loss": "AE",
+        "center_loss": "SE",
+        "hull": "SE",
+        "negative": "SE",
+        "preprocessed_target_loss": "SE",
+        "raw_target_loss": "SE",
+        "smoothness_loss": "SE",
+        "smoothness_loss_2": "SE",
+        "target_depth_smoothness_loss": "SE",
+        "temporal_smoothness_loss": "SE",
+        "volume_proxy_loss": "SE",
+        "volume_target_loss": "SE",
+        "warp_loss": "SE"
+      },
+      "grow": {
+        "factor": 2.0,
+        "intervals": [],
+        "post_grow_actions": [],
+        "pre_grow_actions": []
+      },
+      "grow_lifting_lr": null,
+      "grow_lifting_residual": [
+        {
+          "base": 2.0,
+          "max": Infinity,
+          "min": -Infinity,
+          "offset": 0,
+          "scale": 1.0,
+          "schedule": [],
+          "start": 0,
+          "step": 0,
+          "type": "CONST"
+        },
+        {
+          "base": 2.0,
+          "max": Infinity,
+          "min": -Infinity,
+          "offset": 0,
+          "scale": 1.0,
+          "schedule": [],
+          "start": 0,
+          "step": 0,
+          "type": "CONST"
+        },
+        {
+          "base": 2.0,
+          "max": Infinity,
+          "min": -Infinity,
+          "offset": 0,
+          "scale": 1.0,
+          "schedule": [],
+          "start": 0,
+          "step": 0,
+          "type": "CONST"
+        },
+        {
+          "base": 2.0,
+          "max": Infinity,
+          "min": -Infinity,
+          "offset": 0,
+          "scale": 1.0,
+          "schedule": [],
+          "start": 0,
+          "step": 0,
+          "type": "CONST"
+        },
+        {
+          "base": 2.0,
+          "max": Infinity,
+          "min": -Infinity,
+          "offset": 0,
+          "scale": 1.0,
+          "schedule": [],
+          "start": 0,
+          "step": 0,
+          "type": "CONST"
+        }
+      ],
+      "grow_lifting_skip": null,
+      "grow_lifting_train": null,
+      "grow_volenc_residual": null,
+      "hull": 0,
+      "learning_rate": {
+        "base": 1.0,
+        "max": 1,
+        "min": 0.0,
+        "offset": -5000,
+        "scale": 0.0002,
+        "schedule": [],
+        "start": 0.0004,
+        "step": 0,
+        "type": "ROOT_DECAY"
+      },
+      "main_warp_fwd": true,
+      "negative": 0.0,
+      "optim_beta": 0.9,
+      "pre_opt": {
+        "SDF_pos_loss": 0.0,
+        "center_loss": 0.0,
+        "discriminator_loss": 0.0,
+        "first": {
+          "SDF_pos_loss": 0.0,
+          "center_loss": 0.0,
+          "discriminator_loss": 0.0,
+          "hull": 0.0,
+          "iterations": 0,
+          "learning_rate": {
+            "base": 0.5,
+            "max": Infinity,
+            "min": -Infinity,
+            "offset": 0,
+            "scale": 6.666666666666667e-05,
+            "schedule": [],
+            "start": 3.0,
+            "step": 0,
+            "type": "EXPONENTIAL"
+          },
+          "negative": 0.0,
+          "preprocessed_target_loss": 0.0,
+          "raw_target_loss": 1.74e-05,
+          "regularization": 0.0001,
+          "smoothness_loss": 0.0,
+          "smoothness_loss_2": 0.0,
+          "smoothness_neighbours": 3,
+          "target_depth_smoothness_loss": 0.0,
+          "temporal_smoothness_loss": 0.0,
+          "volume_target_loss": 0.0,
+          "warp_loss": 0.0
+        },
+        "grow": {
+          "factor": 1.2,
+          "intervals": []
+        },
+        "hull": 0.0,
+        "inspect_gradients": 1,
+        "iterations": 2400,
+        "learning_rate": {
+          "base": 0.5,
+          "max": Infinity,
+          "min": -Infinity,
+          "offset": 0,
+          "scale": 0.0003333333333333333,
+          "schedule": [],
+          "start": 3.0,
+          "step": 0,
+          "type": "EXPONENTIAL"
+        },
+        "negative": 0.0,
+        "preprocessed_target_loss": 0.0,
+        "raw_target_loss": 1.74e-05,
+        "regularization": 0.0001,
+        "seq_init": "WARP",
+        "smoothness_loss": 0.0,
+        "smoothness_loss_2": 0.0,
+        "smoothness_neighbours": 3,
+        "target_depth_smoothness_loss": 0.0,
+        "temporal_smoothness_loss": 0.0,
+        "volume_target_loss": 0.0,
+        "warp_loss": 0.0
+      },
+      "pre_optimization": false,
+      "preprocessed_target_loss": 0.0,
+      "raw_target_loss": 1,
+      "regularization": 1e-06,
+      "scale_render_grads_sharpness": 0.0,
+      "smoothness_loss": 0,
+      "smoothness_loss_2": 0,
+      "smoothness_neighbours": 1,
+      "target_depth_smoothness_loss": 0.0,
+      "temporal_smoothness_loss": 0.0,
+      "train_decoder": false,
+      "use_hull": true,
+      "view_interpolation": {
+        "steps": 0
+      },
+      "volume_proxy_loss": {
+        "base": 2.0,
+        "max": 0.01,
+        "min": 0.001,
+        "offset": 4000,
+        "scale": 1.0,
+        "schedule": [],
+        "start": 0.01,
+        "step": -1.125e-06,
+        "type": "LINEAR"
+      },
+      "volume_target_loss": 0,
+      "warp_clamp": "MC_SMOOTH",
+      "warp_gradients": {
+        "active": true,
+        "decay": 0.9,
+        "update_first_only": true,
+        "weight": 1.0
+      },
+      "warp_loss": 0.0
+    },
+    "discriminator": {
+      "activation": "lrelu",
+      "activation_alpha": 0.2,
+      "active": true,
+      "cam_res_down": 6,
+      "conditional_hull": false,
+      "fake_camera_jitter": false,
+      "grow": {
+        "factor": 2.0,
+        "intervals": []
+      },
+      "history": {
+        "keep_chance": 0.01,
+        "load": null,
+        "reset_on_density_grow": true,
+        "samples": 4,
+        "save": false,
+        "sequence_reuse": true,
+        "size": 800
+      },
+      "kernel_size": 4,
+      "layers": [
+        16,
+        16,
+        24,
+        24,
+        32,
+        32,
+        32,
+        64,
+        64,
+        64,
+        16,
+        4
+      ],
+      "learning_rate": {
+        "base": 1.0,
+        "max": 1,
+        "min": 0.0,
+        "offset": -5000,
+        "scale": 0.0002,
+        "schedule": [],
+        "start": 0.0004,
+        "step": 0,
+        "type": "ROOT_DECAY"
+      },
+      "loss_type": "RaLSGAN",
+      "model": "[RUNID:000000-000000]disc_model.h5",
+      "noise_std": 0.0,
+      "num_fake": 3,
+      "num_real": 4,
+      "optim_beta": 0.5,
+      "padding": "MIRROR",
+      "pre_opt": {
+        "first": {
+          "learning_rate": {
+            "base": 0.5,
+            "scale": 0.00013333333333333334,
+            "start": 0.0004,
+            "type": "exponential"
+          },
+          "regularization": 0.002,
+          "train": false
+        },
+        "learning_rate": 0.00016,
+        "regularization": 0.002,
+        "train": false
+      },
+      "regularization": 0.002,
+      "start_delay": 0,
+      "steps": 1,
+      "stride": [
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1
+      ],
+      "target_label": 1.0,
+      "temporal_input": {
+        "active": false,
+        "step_range": [
+          -3,
+          4,
+          1
+        ]
+      },
+      "train": true,
+      "use_fc": false
+    },
+    "frame_merge_network": {
+      "active": false,
+      "grow_intervals": [],
+      "min_grid_res": 4,
+      "model": {
+        "alpha": 0.2,
+        "conv_activation": "relu",
+        "conv_padding": "ZERO",
+        "create_inputs": true,
+        "decoder_resblocks": [],
+        "down_conv_filters": null,
+        "down_conv_kernel_size": 4,
+        "down_mode": "STRIDED",
+        "encoder_resblocks": [
+          "RB:64-5_64-5_s0",
+          "RB:48-5_48-5_s1",
+          "RB:32-5_32-5_s1"
+        ],
+        "input_blocks": [
+          "C:64-1"
+        ],
+        "input_levels": 1,
+        "level_scale_factor": 2,
+        "normalization": "LAYER",
+        "num_levels": 1,
+        "output_activation": "none",
+        "output_blocks": [],
+        "output_conv_kernel_size": 0,
+        "output_mode": "SINGLE",
+        "share_decoder": false,
+        "share_down_layer": true,
+        "share_encoder": false,
+        "share_input_layer": false,
+        "share_output_layer": true,
+        "share_up_layer": true,
+        "skip_merge_mode": "CONCAT",
+        "up_conv_filters": 1,
+        "up_conv_kernel_size": 4,
+        "up_mode": "NNSAMPLE_CONV"
+      },
+      "skip_merge_weight_schedule": {
+        "base": 2.0,
+        "max": 1.0,
+        "min": 1.0,
+        "offset": 250,
+        "scale": 1.0,
+        "schedule": [],
+        "start": 1.0,
+        "step": 0.0,
+        "type": "LINEAR"
+      },
+      "start_level": 0,
+      "train_mode": "ALL",
+      "train_mode_schedule": {
+        "base": 2.0,
+        "max": Infinity,
+        "min": -Infinity,
+        "offset": 0,
+        "scale": 1.0,
+        "schedule": [],
+        "start": true,
+        "step": 0,
+        "type": "BOOLEAN"
+      }
+    },
+    "frame_order": "BWD",
+    "iterations": 25000,
+    "lifting_network": {
+      "active": true,
+      "grow_intervals": [],
+      "min_grid_res": 4,
+      "model": "[RUNID:000000-000000]lifting_network",
+      "skip_merge_weight_schedule": {
+        "base": 2.0,
+        "max": 1.0,
+        "min": 1.0,
+        "offset": 250,
+        "scale": 1.0,
+        "schedule": [],
+        "start": 1.0,
+        "step": 0.0,
+        "type": "LINEAR"
+      },
+      "start_level": 0,
+      "train_mode": "ALL",
+      "train_mode_schedule": {
+        "base": 2.0,
+        "max": Infinity,
+        "min": -Infinity,
+        "offset": 0,
+        "scale": 1.0,
+        "schedule": [],
+        "start": true,
+        "step": 0,
+        "type": "BOOLEAN"
+      }
+    },
+    "light": {
+      "learning_rate": {
+        "base": 1,
+        "scale": 0,
+        "start": 0.001,
+        "type": "exponential"
+      },
+      "max": 6.0,
+      "min": 0.01,
+      "optim_beta": 0.9,
+      "optimize": false
+    },
+    "loss_active_eps": 1e-18,
+    "optimize_buoyancy": false,
+    "randomization": {
+      "grid_size_min": 3,
+      "grid_size_relative": 1,
+      "grow_mode": null,
+      "input_weights": null,
+      "inputs": [
+        2
+      ],
+      "max_inputs": 5,
+      "max_targets": 1,
+      "min_inputs": 2,
+      "min_targets": 1,
+      "num_inputs_weights": null,
+      "num_targets_weights": null,
+      "scale_density_max": 1,
+      "scale_density_min": 1,
+      "scale_images_max": 1,
+      "scale_images_min": 1,
+      "sequence_length": false,
+      "target_weights": null,
+      "targets": [
+        2
+      ],
+      "transform": false
+    },
+    "resource_device": "/gpu:0",
+    "sequence_length": {
+      "base": 2.0,
+      "max": Infinity,
+      "min": -Infinity,
+      "offset": 0,
+      "scale": 1.0,
+      "schedule": [
+        [
+          1500,
+          2
+        ],
+        [
+          1500,
+          3
+        ],
+        [
+          0,
+          -1
+        ]
+      ],
+      "start": -1,
+      "step": 0,
+      "type": "SCHEDULE"
+    },
+    "start_iteration": 0,
+    "summary_interval": 125,
+    "train_frame_encoders": false,
+    "train_res_down": 6,
+    "velocity": {
+      "CFL_loss": 0.1,
+      "CFL_loss_MS_weighting": {
+        "base": 2.0,
+        "max": Infinity,
+        "min": -Infinity,
+        "offset": 0,
+        "scale": 1.0,
+        "schedule": [],
+        "start": 1.0,
+        "step": 0,
+        "type": "CONST"
+      },
+      "MS_coherence_loss": 0,
+      "MS_coherence_loss_MS_weighting": {
+        "base": 2.0,
+        "max": Infinity,
+        "min": -Infinity,
+        "offset": 0,
+        "scale": 1.0,
+        "schedule": [],
+        "start": 1.0,
+        "step": 0,
+        "type": "CONST"
+      },
+      "cossim_loss": 0.0,
+      "decoder": {
+        "active": true,
+        "downscale_input_modes": [
+          "RESAMPLE",
+          "RESAMPLE"
+        ],
+        "grow_intervals": [],
+        "input_type": "PREPROC",
+        "min_grid_res": 4,
+        "model": {
+          "alpha": 0.2,
+          "conv_activation": "relu",
+          "conv_padding": "ZERO",
+          "create_inputs": false,
+          "decoder_resblocks": [],
+          "down_conv_filters": null,
+          "down_conv_kernel_size": 4,
+          "down_mode": "NONE",
+          "encoder_resblocks": [
+            "RB:32-5_32-5_s1",
+            "RB:32-5_32-5_s1",
+            "RB:16-5_16-5_s1",
+            "RB:8-5_8-5_s1",
+            "RB:4-5_4-5_s1"
+          ],
+          "input_blocks": [
+            "C:16-1"
+          ],
+          "input_levels": 1,
+          "level_scale_factor": 1.4,
+          "normalization": "LAYER",
+          "num_levels": 1,
+          "output_activation": "none",
+          "output_blocks": [],
+          "output_conv_kernel_size": 1,
+          "output_mode": "SINGLE",
+          "share_decoder": false,
+          "share_down_layer": true,
+          "share_encoder": true,
+          "share_input_layer": true,
+          "share_output_layer": true,
+          "share_up_layer": true,
+          "skip_merge_mode": "CONCAT",
+          "up_conv_filters": 16,
+          "up_conv_kernel_size": 4,
+          "up_mode": "NNSAMPLE_CONV"
+        },
+        "recursive_MS": true,
+        "recursive_MS_copy_on_grow": false,
+        "recursive_MS_direct_input": false,
+        "recursive_MS_levels": "VARIABLE",
+        "recursive_MS_residual_weight": [
+          {
+            "base": 2.0,
+            "max": 1,
+            "min": 0,
+            "offset": 0,
+            "scale": 1.0,
+            "schedule": [],
+            "start": 0,
+            "step": 0.0006666666666666666,
+            "type": "LINEAR"
+          },
+          {
+            "base": 2.0,
+            "max": 1,
+            "min": 0,
+            "offset": 500,
+            "scale": 1.0,
+            "schedule": [],
+            "start": 0,
+            "step": 0.0006666666666666666,
+            "type": "LINEAR"
+          },
+          {
+            "base": 2.0,
+            "max": 1,
+            "min": 0,
+            "offset": 4500,
+            "scale": 1.0,
+            "schedule": [],
+            "start": 0,
+            "step": 0.0006666666666666666,
+            "type": "LINEAR"
+          },
+          {
+            "base": 2.0,
+            "max": 1,
+            "min": 0,
+            "offset": 8500,
+            "scale": 1.0,
+            "schedule": [],
+            "start": 0,
+            "step": 0.0006666666666666666,
+            "type": "LINEAR"
+          },
+          {
+            "base": 2.0,
+            "max": 1,
+            "min": 0,
+            "offset": 12500,
+            "scale": 1.0,
+            "schedule": [],
+            "start": 0,
+            "step": 0.0006666666666666666,
+            "type": "LINEAR"
+          }
+        ],
+        "recursive_MS_scale_factor": 2.0,
+        "recursive_MS_shared_model": true,
+        "recursive_MS_train_mode": "ALL",
+        "recursive_MS_use_max_level_input": false,
+        "share_downscale_encoder": false,
+        "skip_merge_weight_schedule": {
+          "base": 2.0,
+          "max": 1.0,
+          "min": 1.0,
+          "offset": 250,
+          "scale": 1.0,
+          "schedule": [],
+          "start": 1.0,
+          "step": 0.0,
+          "type": "LINEAR"
+        },
+        "start_level": 0,
+        "step_input_density": [
+          0
+        ],
+        "step_input_density_proxy": [
+          0,
+          1
+        ],
+        "step_input_density_target": [],
+        "step_input_features": [
+          0,
+          1
+        ],
+        "train_mode": "ALL",
+        "train_mode_schedule": {
+          "base": 2.0,
+          "max": Infinity,
+          "min": -Infinity,
+          "offset": 0,
+          "scale": 1.0,
+          "schedule": [],
+          "start": true,
+          "step": 0,
+          "type": "BOOLEAN"
+        },
+        "type_input_features": [
+          "INPUT_IMAGES_UNPROJECTION"
+        ],
+        "velocity_format": "CURL_STAGGERED",
+        "warp_input_indices": [
+          0,
+          1,
+          3
+        ]
+      },
+      "density_proxy_warp_loss": 0,
+      "density_target_warp_loss": 0.0,
+      "density_target_warp_loss_MS_weighting": {
+        "base": 2.0,
+        "max": Infinity,
+        "min": -Infinity,
+        "offset": 0,
+        "scale": 1.0,
+        "schedule": [],
+        "start": 1.0,
+        "step": 0,
+        "type": "CONST"
+      },
+      "density_warp_loss": 0.0,
+      "density_warp_loss_MS_weighting": {
+        "base": 2.0,
+        "max": Infinity,
+        "min": -Infinity,
+        "offset": 0,
+        "scale": 1.0,
+        "schedule": [],
+        "start": 1.0,
+        "step": 0,
+        "type": "CONST"
+      },
+      "divergence_loss": 0,
+      "divergence_loss_MS_weighting": {
+        "base": 2.0,
+        "max": Infinity,
+        "min": -Infinity,
+        "offset": 0,
+        "scale": 1.0,
+        "schedule": [],
+        "start": 1.0,
+        "step": 0,
+        "type": "CONST"
+      },
+      "divergence_normalize": 0.0,
+      "error_functions": {
+        "CFL_loss": "SE",
+        "MS_coherence_loss": "SE",
+        "density_proxy_warp_loss": "SE",
+        "density_target_warp_loss": "SE",
+        "density_warp_loss": "SE",
+        "divergence_loss": "SE",
+        "magnitude_loss": "SE",
+        "velocity_warp_loss": "SE",
+        "volume_target_loss": "SE"
+      },
+      "grow": {
+        "factor": 2.0,
+        "intervals": [],
+        "scale_magnitude": true
+      },
+      "learning_rate": {
+        "base": 1.0,
+        "max": 1,
+        "min": 0.0,
+        "offset": -5000,
+        "scale": 0.0002,
+        "schedule": [],
+        "start": 0.0004,
+        "step": 0,
+        "type": "ROOT_DECAY"
+      },
+      "magnitude_loss": 0,
+      "noise_std": {
+        "base": 2.0,
+        "max": Infinity,
+        "min": -Infinity,
+        "offset": 0,
+        "scale": 1.0,
+        "schedule": [],
+        "start": 0.0,
+        "step": 0,
+        "type": "CONST"
+      },
+      "optim_beta": 0.9,
+      "pre_opt": {
+        "CFL_loss": 0.0,
+        "MS_coherence_loss": 0.0,
+        "cossim_loss": 0.0,
+        "density_proxy_warp_loss": 0,
+        "density_target_warp_loss": 4.1000000000000003e-10,
+        "density_warp_loss": 4.1000000000000003e-10,
+        "divergence_loss": 2.58e-09,
+        "first": {
+          "CFL_loss": 0.0,
+          "MS_coherence_loss": 0.0,
+          "cossim_loss": 0.0,
+          "density_proxy_warp_loss": 0,
+          "density_target_warp_loss": 4.1000000000000003e-10,
+          "density_warp_loss": 1,
+          "divergence_loss": {
+            "base": 2.0,
+            "max": 2.0,
+            "min": 0.0,
+            "offset": 1000,
+            "scale": 1.0,
+            "schedule": [],
+            "start": 0.0,
+            "step": 0.0004,
+            "type": "LINEAR"
+          },
+          "grow": {
+            "factor": 2,
+            "intervals": [
+              1200,
+              1400,
+              1600,
+              1800
+            ],
+            "scale_magnitude": false
+          },
+          "iterations": 16000,
+          "learning_rate": {
+            "base": 0.5,
+            "max": 1e-05,
+            "min": -Infinity,
+            "offset": 0,
+            "scale": 0.0005,
+            "schedule": [],
+            "start": 1e-05,
+            "step": 0,
+            "type": "exponential"
+          },
+          "magnitude_loss": {
+            "base": 0.5,
+            "max": Infinity,
+            "min": -Infinity,
+            "offset": 0,
+            "scale": 0.0005,
+            "schedule": [],
+            "start": 0.02,
+            "step": 0,
+            "type": "exponential"
+          },
+          "regularization": 0.0001,
+          "smoothness_loss": 0.0,
+          "smoothness_neighbours": 3,
+          "velocity_warp_loss": 0.0,
+          "volume_target_loss": 0.0
+        },
+        "grow": {
+          "factor": 1.2,
+          "intervals": [],
+          "scale_magnitude": true
+        },
+        "iterations": 1200,
+        "learning_rate": 0.02,
+        "magnitude_loss": 0.0,
+        "regularization": 0.0001,
+        "seq_init": "WARP",
+        "smoothness_loss": 0.0,
+        "smoothness_neighbours": 3,
+        "velocity_warp_loss": 0.0,
+        "volume_target_loss": 0.0
+      },
+      "pre_optimization": false,
+      "regularization": 1e-06,
+      "smoothness_loss": 0.0001,
+      "smoothness_neighbours": 3,
+      "train_decoder": true,
+      "velocity_warp_loss": 0.0,
+      "volume_target_loss": 0.0,
+      "warp_clamp": "MC_SMOOTH",
+      "warp_gradients": {
+        "active": false,
+        "decay": {
+          "base": 2.0,
+          "max": Infinity,
+          "min": -Infinity,
+          "offset": 0,
+          "scale": 1.0,
+          "schedule": [],
+          "start": 0.9,
+          "step": 0,
+          "type": "CONST"
+        },
+        "weight": 100.0
+      },
+      "warp_order": 2
+    },
+    "view_encoder": {
+      "encoder": [
+        "IDENTITY"
+      ],
+      "grow_intervals": [],
+      "lifting": "NETWORK",
+      "merge": "NETWORK_SUMPROD",
+      "min_grid_res": 4,
+      "model": {
+        "alpha": 0.2,
+        "conv_activation": "relu",
+        "conv_padding": "ZERO",
+        "create_inputs": false,
+        "decoder_resblocks": [],
+        "down_conv_filters": 8,
+        "down_conv_kernel_size": 4,
+        "down_mode": "STRIDED",
+        "encoder_resblocks": [
+          "RB:8-5_8-5_s1",
+          "RB:8-5_8-5_s0",
+          "RB:16-6_16-5_s2-2",
+          "RB:16-5_16-5_s0",
+          "RB:32-6_32-5_s2-2",
+          "RB:32-5_32-5_s0"
+        ],
+        "input_blocks": [],
+        "input_levels": 1,
+        "level_scale_factor": 2,
+        "normalization": "LAYER",
+        "num_levels": 1,
+        "output_activation": "none",
+        "output_blocks": [],
+        "output_channels": 32,
+        "output_conv_kernel_size": 1,
+        "output_mode": "SINGLE",
+        "share_decoder": false,
+        "share_down_layer": true,
+        "share_encoder": false,
+        "share_input_layer": true,
+        "share_output_layer": true,
+        "share_up_layer": true,
+        "skip_merge_mode": "CONCAT",
+        "up_conv_filters": 8,
+        "up_conv_kernel_size": 4,
+        "up_mode": "NNSAMPLE_CONV"
+      },
+      "skip_merge_weight_schedule": {
+        "base": 2.0,
+        "max": 1.0,
+        "min": 1.0,
+        "offset": 250,
+        "scale": 1.0,
+        "schedule": [],
+        "start": 1.0,
+        "step": 0.0,
+        "type": "LINEAR"
+      },
+      "start_level": 0,
+      "train_mode": "ALL",
+      "train_mode_schedule": {
+        "base": 2.0,
+        "max": Infinity,
+        "min": -Infinity,
+        "offset": 0,
+        "scale": 1.0,
+        "schedule": [],
+        "start": true,
+        "step": 0,
+        "type": "BOOLEAN"
+      }
+    },
+    "volume_encoder": {
+      "active": false,
+      "grow_intervals": [],
+      "min_grid_res": 4,
+      "model": {
+        "alpha": 0.2,
+        "conv_activation": "relu",
+        "conv_padding": "ZERO",
+        "create_inputs": true,
+        "decoder_resblocks": [],
+        "down_conv_filters": null,
+        "down_conv_kernel_size": 4,
+        "down_mode": "STRIDED",
+        "encoder_resblocks": [
+          "RB:32-7_32-7_s0",
+          "RB:32-7_32-7_s0",
+          "RB:32-7_32-7_s0",
+          "RB:32-7_32-7_s0",
+          "RB:32-7_32-7_s0",
+          "RB:32-7_32-7_s0"
+        ],
+        "input_blocks": [
+          "C:32-1"
+        ],
+        "input_levels": 1,
+        "level_scale_factor": 2,
+        "normalization": "LAYER",
+        "num_levels": 1,
+        "output_activation": "none",
+        "output_blocks": [],
+        "output_channels": 32,
+        "output_conv_kernel_size": 0,
+        "output_mode": "SINGLE",
+        "share_decoder": false,
+        "share_down_layer": true,
+        "share_encoder": false,
+        "share_input_layer": false,
+        "share_output_layer": true,
+        "share_up_layer": true,
+        "skip_merge_mode": "CONCAT",
+        "up_conv_filters": 1,
+        "up_conv_kernel_size": 4,
+        "up_mode": "NNSAMPLE_CONV"
+      },
+      "skip_merge_weight_schedule": {
+        "base": 2.0,
+        "max": 1.0,
+        "min": 1.0,
+        "offset": 250,
+        "scale": 1.0,
+        "schedule": [],
+        "start": 1.0,
+        "step": 0.0,
+        "type": "LINEAR"
+      },
+      "start_level": 0,
+      "train_mode": "ALL",
+      "train_mode_schedule": {
+        "base": 2.0,
+        "max": Infinity,
+        "min": -Infinity,
+        "offset": 0,
+        "scale": 1.0,
+        "schedule": [],
+        "start": true,
+        "step": 0,
+        "type": "BOOLEAN"
+      }
+    }
+  },
+  "validation": {
+    "batch_size": 2,
+    "cmp_scalarFlow": false,
+    "cmp_scalarFlow_render": false,
+    "cmp_vol_targets": false,
+    "input_view_mask": [
+      2
+    ],
+    "output_interval": 125,
+    "render_MS": false,
+    "render_cycle": true,
+    "render_cycle_steps": 8,
+    "render_density": true,
+    "render_shadow": false,
+    "render_target": true,
+    "render_velocity": true,
+    "simulation": 80,
+    "start": 60,
+    "stats": true,
+    "step": 50,
+    "stop": 141,
+    "synth_data_eval_setup": "SPHERE",
+    "synth_data_seed": 1802168824,
+    "synth_data_shape_types": 5,
+    "warp_test": [],
+    "warp_test_render": true
+  }
+}
