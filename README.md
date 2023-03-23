@@ -32,11 +32,11 @@ We address the challenging problem of jointly inferring the 3D flow and volumetr
 	conda activate NGT
 	```
 	(If you get errors regarding missing libraries, try restarting your shell session first.)
-- Compile the rendering and advection kernels (requires `g++` and `nvcc` compilers, `nvcc` should come with the conda):
+- Compile the rendering and advection kernels (requires `g++` and `nvcc` compilers, `nvcc` should come with the conda environment):
 	```
 	python compile.py
 	```
-	Alternatively, you can download the compiled kernels from the [releases](). Place them into `Neural-Global-Transport/phitest/render/cuda/build`.
+	Alternatively, since the required gcc version is quite old, you can download the compiled kernels from the [releases](https://github.com/tum-pbs/Neural-Global-Transport/releases). Place them into `Neural-Global-Transport/phitest/render/cuda/build`.
 - If the 'freeimage' binaries for imageio are not available on your system [download them from Github](https://github.com/imageio/imageio-binaries) OR run
 	```
 	imageio_download_bin freeimage
@@ -46,7 +46,7 @@ We address the challenging problem of jointly inferring the 3D flow and volumetr
 Required training data are videos of moving smoke.
 We use the captures of the [ScalarFlow dataset](https://ge.in.tum.de/publications/2019-scalarflow-eckert/) or renderings of a synthetic 3D smoke flow simulated with [Mantaflow](http://mantaflow.com/).
 For the example setup you need the first 20 scenes of ScalarFlow in `Neural-Global-Transport/data/ScalarFlow/sim_*`.
-Our final models trained for the ScalarFlow dataset can be found in the [releases]().
+Our final models trained for the ScalarFlow dataset can be found in the [releases](https://github.com/tum-pbs/Neural-Global-Transport/releases).
 When using your own data, make sure that each frame (esp. the first frame) contains visible density.
 
 
