@@ -1,5 +1,5 @@
 # Neural-Global-Transport
-This repository is the official implementation of our ICLR 2023 paper [Learning to Estimate Single-View Volumetric Flow Motions without 3D Supervision](https://openreview.net/forum?id=2vmGv5wPDBZ)
+This repository contains the implementation of our ICLR 2023 paper [Learning to Estimate Single-View Volumetric Flow Motions without 3D Supervision](https://openreview.net/forum?id=2vmGv5wPDBZ)
 ([Project Website](https://ge.in.tum.de/publications/2023-franz-neuralglobtrans/), [arXiv](https://arxiv.org/abs/2302.14470))  
 This work is based on our previous [Global Transport for Fluid Reconstruction with Learned Self-Supervision](https://openaccess.thecvf.com/content/CVPR2021/html/Franz_Global_Transport_for_Fluid_Reconstruction_With_Learned_Self-Supervision_CVPR_2021_paper.html) ([code](https://github.com/tum-pbs/Global-Flow-Transport))  
 
@@ -92,3 +92,4 @@ To save the generated volumes add the `--saveVol` flag.
 
 ## Acknowledgements
 This work was supported by the Siemens/IAS Fellowship Digital Twin, and the DFG Research Unit TH 2034/2-1.
+
