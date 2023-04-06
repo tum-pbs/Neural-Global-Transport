@@ -25,7 +25,7 @@ We address the challenging problem of jointly inferring the 3D flow and volumetr
 
 - Install Python and setup the environment via [conda](https://docs.conda.io/en/latest/miniconda.html):
 	```
-	conda create --name NGT -file NGT_env.txt
+	conda create --name NGT --file NGT_env.txt
 	```
 	Don't forget to activate the environment:
 	```
